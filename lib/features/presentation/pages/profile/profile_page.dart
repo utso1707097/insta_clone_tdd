@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone_tdd/utils/helper.dart';
 
 import '../../../../utils/colors.dart';
+import 'edit_profile_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -16,7 +17,9 @@ class ProfilePage extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: Icon(Icons.menu,color: primaryColor,),
+            child: InkWell(child: Icon(Icons.menu,color: primaryColor,),onTap: (){
+              _openBottomModalSheet(context);
+            },),
           )
         ],
       ),
@@ -89,5 +92,85 @@ class ProfilePage extends StatelessWidget {
         ),
       )
     );
+  }
+
+  _openBottomModalSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            height: 150,
+            decoration: BoxDecoration(color: backGroundColor.withOpacity(.8)),
+            child: SingleChildScrollView(
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Text(
+                        "More Options",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18, color: primaryColor),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Divider(
+                      thickness: 1,
+                      color: secondaryColor,
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          // Navigator.pushNamed(context, PageConst.editProfilePage,
+                          //     arguments: widget.currentUser);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+                        },
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));                        },
+                          child: Text(
+                            "Edit Profile",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 16, color: primaryColor),
+                          ),
+                        ),
+                      ),
+                    ),
+                    sizeVer(7),
+                    Divider(
+                      thickness: 1,
+                      color: secondaryColor,
+                    ),
+                    sizeVer(7),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: InkWell(
+                        onTap: () {
+                        //   BlocProvider.of<AuthCubit>(context).loggedOut();
+                        //   Navigator.pushNamedAndRemoveUntil(
+                        //       context, PageConst.signInPage, (route) => false);
+                        },
+                        child: Text(
+                          "Logout",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 16, color: primaryColor),
+                        ),
+                      ),
+                    ),
+                    sizeVer(7),
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
   }
 }
