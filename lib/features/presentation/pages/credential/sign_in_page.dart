@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone_tdd/utils/colors.dart';
 
 import '../../../../utils/helper.dart';
+import '../../../../utils/page_const.dart';
 import '../../widgets/button_container_widget.dart';
 import '../../widgets/form_container_widget.dart';
 import 'sign_up_page.dart';
@@ -60,8 +61,8 @@ class SignInPage extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    // Navigator.pushNamedAndRemoveUntil(context, PageConst.signUpPage, (route) => false);
-                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => SignUpPage()), (route) => false);
+                    Navigator.pushNamedAndRemoveUntil(context, PageConst.signUpPage, (route) => false);
+                    // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => SignUpPage()), (route) => false);
                   },
                   child: Text(
                     "Sign Up.",

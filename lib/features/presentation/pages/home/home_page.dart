@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:instagram_clone_tdd/features/presentation/pages/post/comment/comment_page.dart';
 import 'package:instagram_clone_tdd/utils/colors.dart';
 import 'package:instagram_clone_tdd/utils/helper.dart';
+import 'package:instagram_clone_tdd/utils/page_const.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../post/update_post_page.dart';
@@ -207,8 +208,8 @@ class HomePage extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       // Navigator.pushNamed(context, PageConst.updatePostPage, arguments: post);
-
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => UpdatePostPage()));
+                      Navigator.pushNamed(context, PageConst.updatePostPage);
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) => UpdatePostPage()));
 
                     },
                     child: Text(

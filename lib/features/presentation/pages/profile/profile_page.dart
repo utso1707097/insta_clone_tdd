@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone_tdd/utils/helper.dart';
 
 import '../../../../utils/colors.dart';
+import '../../../../utils/page_const.dart';
 import 'edit_profile_page.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -129,9 +130,8 @@ class ProfilePage extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 10.0),
                       child: GestureDetector(
                         onTap: () {
-                          // Navigator.pushNamed(context, PageConst.editProfilePage,
-                          //     arguments: widget.currentUser);
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+                          Navigator.pushNamed(context, PageConst.editProfilePage);
+                         // Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()));
                         },
                         child: GestureDetector(
                           onTap: (){
